@@ -20,9 +20,8 @@ If you prefer browsing the contents of this site through a list instead of a gra
 
 - [All Notes](/notes)
 - [Setup-related Notes](/tags/setup)
-- [Setup-related Notes](/notes/vault)
-- [f3d7a50e57feef151a315f709a223a46a5bbd264](/notes/f3d7a50e57feef151a315f709a223a46a5bbd264)
-- [vault](/notes/vault @ f3d7a50)
+- [frontend](/frontend)
+- [frontend](/frontend/Fork.md)
 
 ## Troubleshooting
 - 🚧 [Troubleshooting and FAQ](notes/troubleshooting.md)
