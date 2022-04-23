@@ -1,7 +1,7 @@
 ---
 title: "React"
 tag: 
-- 
+- js/react
 ---
 # React
 - Front-End 框架（不是 Framework） 

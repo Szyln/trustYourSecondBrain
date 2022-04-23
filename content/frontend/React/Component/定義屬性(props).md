@@ -1,7 +1,9 @@
 ---
 title: "定義屬性(props)"
 tag: 
-- 
+- js/react
+- js/react/component 
+
 ---
 # 定義屬性
 - HTML 標籤上有很多屬性（例：class, style, action......）都可以透過 React 去設定

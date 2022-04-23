@@ -1,7 +1,7 @@
 ---
 title: "安裝 React"
 tag: 
-- 
+- js/react
 ---
 # 安裝 React
 
