@@ -1,0 +1,272 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="7+1 架構 tags: css scss  Sass Guidelines architecture
+架構是什麼 為何架構重要 css 易學難精，寫得當下很很直覺，但事後要做維護確很難 跟一起學習的夥伴討論時幾乎都講過同句話
+ 回頭要改的時候，覺得重寫最快 學習起初可能會覺得對於網站，速度最重要，趕著學新技巧、做新頁面 但忽略可維護性、可讀性的後果，一定會是事後浮現
+ 建立一個好架構，難、費時、而且當下不會感受到什麼好處 所以我們先參考巨人的肩膀"><title>7+1 結構</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=https://szyln.github.io/trustYourSecondBrain//icon.png><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code:wght@400;700&display=swap" rel=stylesheet><link href=https://szyln.github.io/trustYourSecondBrain/styles.cd61336c89ed6e03702366ce4a492b75.min.css rel=stylesheet><script src=https://szyln.github.io/trustYourSecondBrain/js/darkmode.46b07878b7f5d9e26ad7a3c40f8a0605.min.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],throwOnError:!1})})</script><script>const BASE_URL="https://szyln.github.io/trustYourSecondBrain/",fetchData=Promise.all([fetch("https://szyln.github.io/trustYourSecondBrain/indices/linkIndex.6ce789d37ee5e9bad12bcf7b76609cfc.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://szyln.github.io/trustYourSecondBrain/indices/contentIndex.1460ebc1ad4bdc950945b0937c2d542e.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-XYFD95KB4J"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XYFD95KB4J",{anonymize_ip:!1})}</script><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
+<script defer src=https://szyln.github.io/trustYourSecondBrain/js/search.bc849b857f2c1b822264d40635bb67b6.min.js></script><div class=singlePage><header><h1 id=page-title><a href=https://szyln.github.io/trustYourSecondBrain/>🪴 Quartz 3.2</a></h1><svg tabindex="0" id="search-icon" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg><div class=spacer></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
+<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>7+1 結構</h1><p class=meta>Last updated Unknown</p><ul class=tags></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><ol><li></li></ol></li><li><a href=#架構是什麼>架構是什麼</a></li><li><a href=#為何架構重要>為何架構重要</a></li><li><a href=#sass-官網提供結構範例>Sass 官網提供結構範例</a><ol><li></li><li><a href=#about-globbing>About globbing</a></li><li><a href=#shame-file>Shame file</a></li></ol></li></ol></nav></details></aside><h1 id=71-架構>7+1 架構</h1><h6 id=tags-css-scss>tags: <code>css</code> <code>scss</code></h6><p><a href=https://sass-guidelin.es/#architecture rel=noopener>Sass Guidelines architecture</a></p><h2 id=架構是什麼>架構是什麼</h2><h2 id=為何架構重要>為何架構重要</h2><p>css 易學難精，寫得當下很很直覺，但事後要做維護確很難
+跟一起學習的夥伴討論時幾乎都講過同句話</p><blockquote><p>回頭要改的時候，覺得重寫最快
+學習起初可能會覺得對於網站，<strong>速度</strong>最重要，趕著學新技巧、做新頁面
+但忽略可維護性、可讀性的後果，一定會是事後浮現</p></blockquote><p>建立一個好架構，難、費時、而且當下不會感受到什麼好處
+<a href=https://www.sitepoint.com/look-different-sass-architectures/ rel=noopener>所以我們先參考巨人的肩膀</a></p><h2 id=sass-官網提供結構範例>Sass 官網提供結構範例</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sass/
+</span></span><span class=line><span class=cl><span class=p>|</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>– abstracts/
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _variables.scss    <span class=c1># Sass Variables</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _functions.scss    <span class=c1># Sass Functions</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _mixins.scss       <span class=c1># Sass Mixins</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _placeholders.scss <span class=c1># Sass Placeholders</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>– base/
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _reset.scss        <span class=c1># Reset/normalize</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _typography.scss   <span class=c1># Typography rules</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   …                     <span class=c1># Etc.</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>– components/
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _buttons.scss      <span class=c1># Buttons</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _carousel.scss     <span class=c1># Carousel</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _cover.scss        <span class=c1># Cover</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _dropdown.scss     <span class=c1># Dropdown</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   …                     <span class=c1># Etc.</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>– layout/
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _navigation.scss   <span class=c1># Navigation</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _grid.scss         <span class=c1># Grid system</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _header.scss       <span class=c1># Header</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _footer.scss       <span class=c1># Footer</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _sidebar.scss      <span class=c1># Sidebar</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _forms.scss        <span class=c1># Forms</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   …                     <span class=c1># Etc.</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>– pages/
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _home.scss         <span class=c1># Home specific styles</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _contact.scss      <span class=c1># Contact specific styles</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   …                     <span class=c1># Etc.</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>– themes/
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _theme.scss        <span class=c1># Default theme</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _admin.scss        <span class=c1># Admin theme</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   …                     <span class=c1># Etc.</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>– vendors/
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _bootstrap.scss    <span class=c1># Bootstrap</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   <span class=p>|</span>– _jquery-ui.scss    <span class=c1># jQuery UI</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>   …                     <span class=c1># Etc.</span>
+</span></span><span class=line><span class=cl><span class=p>|</span>
+</span></span><span class=line><span class=cl><span class=sb>`</span>– main.scss              <span class=c1># Main Sass file</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=base-folder>Base folder</h4><p>The <code>base/</code> folder holds what we might call the boilerplate code for the project. In there, you might find the reset file, some typographic rules, and probably a stylesheet defining some standard styles for commonly used HTML elements (that I like to call <code>_base.scss</code>).</p><ul><li><code>_base.scss</code></li><li><code>_reset.scss</code></li><li><code>_typography.scss</code></li></ul><p>If your project uses <em>a lot</em> of CSS animations, you might consider adding an <code>\_animations.scss</code> file in there containing the <code>@keyframes</code> definitions of all your animations. If you only use a them sporadically, let them live along the selectors that use them.</p><h4 id=layout-folder>Layout folder</h4><p>The <code>layout/</code> folder contains everything that takes part in laying out the site or application. This folder could have stylesheets for the main parts of the site (header, footer, navigation, sidebar…), the grid system or even CSS styles for all the forms.</p><ul><li><code>_grid.scss</code></li><li><code>_header.scss</code></li><li><code>_footer.scss</code></li><li><code>_sidebar.scss</code></li><li><code>_forms.scss</code></li><li><code>_navigation.scss</code></li></ul><p>The <code>layout/</code> folder might also be called <code>partials/</code>, depending on what you prefer.</p><h4 id=components-folder>Components folder</h4><p>For smaller components, there is the <code>components/</code> folder. While <code>layout/</code> is <em>macro</em> (defining the global wireframe), <code>components/</code> is more focused on widgets. It contains all kind of specific modules like a slider, a loader, a widget, and basically anything along those lines. There are usually a lot of files in <code>components/</code> since the whole site/application should be mostly composed of tiny modules.</p><ul><li><code>_media.scss</code></li><li><code>_carousel.scss</code></li><li><code>_thumbnails.scss</code></li></ul><p>The <code>components/</code> folder might also be called <code>modules/</code>, depending on what you prefer.</p><h4 id=pages-folder>Pages folder</h4><p>If you have page-specific styles, it is better to put them in a <code>pages/</code> folder, in a file named after the page. For instance, it’s not uncommon to have very specific styles for the home page hence the need for a <code>_home.scss</code> file in <code>pages/</code>.</p><ul><li><code>_home.scss</code></li><li><code>_contact.scss</code></li></ul><p>Depending on your deployment process, these files could be called on their own to avoid merging them with the others in the resulting stylesheet. It is really up to you.</p><h4 id=themes-folder>Themes folder</h4><p>On large sites and applications, it is not unusual to have different themes. There are certainly different ways of dealing with themes but I personally like having them all in a <code>themes/</code> folder.</p><ul><li><code>_theme.scss</code></li><li><code>_admin.scss</code></li></ul><p>This is very project-specific and is likely to be non-existent on many projects.</p><h4 id=abstracts-folder>Abstracts folder</h4><p>The <code>abstracts/</code> folder gathers all Sass tools and helpers used across the project. Every global variable, function, mixin and placeholder should be put in here.</p><p>The rule of thumb for this folder is that it should not output a single line of CSS when compiled on its own. These are nothing but Sass helpers.</p><ul><li><code>_variables.scss</code></li><li><code>_mixins.scss</code></li><li><code>_functions.scss</code></li><li><code>_placeholders.scss</code></li></ul><p>When working on a very large project with a lot of abstract utilities, it might be interesting to group them by topic rather than type, for instance typography (<code>_typography.scss</code>), theming (<code>_theming.scss</code>), etc. Each file contains all the related helpers: variables, functions, mixins and placeholders. Doing so can make the code easier to browse and maintain, especially when files are getting very long.</p><p>The <code>abstracts/</code> folder might also be called <code>utilities/</code> or <code>helpers/</code>, depending on what you prefer.</p><h4 id=vendors-folder>Vendors folder</h4><p>And last but not least, most projects will have a <code>vendors/</code> folder containing all the CSS files from external libraries and frameworks – Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those aside in the same folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.</p><ul><li><code>_normalize.scss</code></li><li><code>_bootstrap.scss</code></li><li><code>_jquery-ui.scss</code></li><li><code>_select2.scss</code></li></ul><p>If you have to override a section of any vendor, I recommend you have an 8th folder called <code>vendors-extensions/</code> in which you may have files named exactly after the vendors they overwrite.</p><p>For instance, <code>vendors-extensions/_bootstrap.scss</code> is a file containing all CSS rules intended to re-declare some of Bootstrap’s default CSS. This is to avoid editing the vendor files themselves, which is generally not a good idea.</p><h4 id=main-file>Main file</h4><p>The main file (usually labelled <code>main.scss</code>) should be the only Sass file from the whole code base not to begin with an underscore. This file should not contain anything but <code>@import</code> and comments.</p><p>Files should be imported according to the folder they live in, one after the other in the following order:</p><ol><li><code>abstracts/</code></li><li><code>vendors/</code></li><li><code>base/</code></li><li><code>layout/</code></li><li><code>components/</code></li><li><code>pages/</code></li><li><code>themes/</code></li></ol><p>In order to preserve readability, the main file should respect these guidelines:</p><ul><li>one file per <code>@import</code>;</li><li>one <code>@import</code> per line;</li><li>no new line between two imports from the same folder;</li><li>a new line after the last import from a folder;</li><li>file extensions and leading underscores omitted.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-scss data-lang=scss><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;abstracts/variables&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;abstracts/functions&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;abstracts/mixins&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;abstracts/placeholders&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;vendors/bootstrap&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;vendors/jquery-ui&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;base/reset&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;base/typography&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;layout/navigation&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;layout/grid&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;layout/header&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;layout/footer&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;layout/sidebar&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;layout/forms&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;components/buttons&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;components/carousel&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;components/cover&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;components/dropdown&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;pages/home&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;pages/contact&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;themes/theme&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;themes/admin&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>There is another way of importing partials that I deem valid as well. On the bright side, it makes the file more readable. On the other hand, it makes updating it slightly more painful. Anyway, I’ll let you decide which is best, it does not matter much. For this way of doing, the main file should respect these guidelines:</p><ul><li>one <code>@import</code> per folder;</li><li>a linebreak after <code>@import</code>;</li><li>each file on its own line;</li><li>a new line after the last import from a folder;</li><li>file extensions and leading underscores omitted.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-scss data-lang=scss><span class=line><span class=cl><span class=k>@import</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;abstracts/variables&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;abstracts/functions&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;abstracts/mixins&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;abstracts/placeholders&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;vendors/bootstrap&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;vendors/jquery-ui&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;base/reset&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;base/typography&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;layout/navigation&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;layout/grid&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;layout/header&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;layout/footer&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;layout/sidebar&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;layout/forms&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;components/buttons&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;components/carousel&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;components/cover&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;components/dropdown&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;pages/home&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;pages/contact&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>@import</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;themes/theme&#39;</span><span class=o>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;themes/admin&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=about-globbing>About globbing</h3><p>In computer programming, glob patterns specify sets of filenames with wildcard characters, such as <code>*.scss</code>. To a general extent, globbing means matching a set of files based on an expression instead of a list of filenames. When applied to Sass, it means importing partials into the
+<a href=https://sass-guidelin.es/#main-file rel=noopener>main file</a> with a glob pattern rather than by listing them individually. This would lead to a main file looking like this:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-scss data-lang=scss><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;abstracts/*&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;vendors/*&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;base/*&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;layout/*&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;components/*&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;pages/*&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>@import</span> <span class=s1>&#39;themes/*&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><p>Sass does not support file globbing out of the box because it can be a dangerous feature as CSS is known to be order-dependant. When dynamically importing files (which usually goes in alphabetical order), one does not control the source order anymore, which can lead to hard to debug side-effects.</p><p>That being said, in a strict component-based architecture with extra care not to leak any style from one partial to the other, the order should not really matter anymore, which would allow for glob imports. This would make it easier to add or remove partials as carefully updating the main file would no longer be required.</p><p>When using Ruby Sass, there is a Ruby gem called
+<a href=https://github.com/chriseppstein/sass-globbing rel=noopener>sass-globbing</a> that enables exactly that behavior. If running on node-sass, one can rely either on Node.js, or whatever build tool they use to handle the compilation (Gulp, Grunt, etc.).</p><h3 id=shame-file>Shame file</h3><p>There is an interesting concept that has been made popular by
+<a href=https://csswizardry.com rel=noopener>Harry Roberts</a>,
+<a href=https://daverupert.com rel=noopener>Dave Rupert</a> and
+<a href=https://css-tricks.com rel=noopener>Chris Coyier</a> that consists of putting all the CSS declarations, hacks and things we are not proud of in a
+<a href=https://csswizardry.com/2013/04/shame-css-full-net-interview/ rel=noopener>shame file</a>. This file, dramatically titled <code>_shame.scss</code>, would be imported after any other file, at the very end of the stylesheet.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-scss data-lang=scss><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * Nav specificity fix.
+</span></span></span><span class=line><span class=cl><span class=cm> *
+</span></span></span><span class=line><span class=cl><span class=cm> * Someone used an ID in the header code (`#header a {}`) which trumps the
+</span></span></span><span class=line><span class=cl><span class=cm> * nav selectors (`.site-nav a {}`). Use !important to override it until I
+</span></span></span><span class=line><span class=cl><span class=cm> * have time to refactor the header stuff.
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl><span class=nc>.site-nav</span> <span class=nt>a</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=na>color</span><span class=o>:</span> <span class=mh>#BADA55</span> <span class=k>!important</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></article><hr><div class=page-end><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=https://szyln.github.io/trustYourSecondBrain/js/graph.27e8521c25c27c79dea35f434c486167.js></script>
+<script>drawGraph("https://szyln.github.io/trustYourSecondBrain/frontend/%E5%89%8D%E7%AB%AF/CSS/scss/7+1-%E7%B5%90%E6%A7%8B","https://szyln.github.io/trustYourSecondBrain",[{"/moc":"#4388cc"}],-1,!0,!1,!0)</script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2022</p><ul><li><a href=/>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>Github</a></li></ul></footer></div><script src=https://szyln.github.io/trustYourSecondBrain/js/popover.e57188d2e4c06b0654e020b3a734bb62.min.js></script>
+<script>initPopover("https://szyln.github.io/trustYourSecondBrain")</script></div></body></html>

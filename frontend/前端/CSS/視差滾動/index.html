@@ -1,0 +1,156 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="視差滾動  animation 語法介紹
+常用語法  animation-name animation-duration animation-delay animation-iteration-count: 跑的次數  數字 infinite（無限、吃效能）   animation-fill-mode  backwards，跑第一個影格 forwards：留在最後一個影格 both：第一個跟最後一個影格都會停住 none（預設）：如果起始、終點都設在同一位置，會很滑順    範例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  div{ position:absolute; left:0; width:50px; height:50px; background:#f00; // 對應下面的 @keyframes animation-name:oxxo; animation-duration:2s; } @keyframes oxxo{ from{ left:0; } to{ left:100px; } }   多步驟的動畫 1 2 3 4 5 6 7 8  // 多步驟的動畫 @keyframes example { 0% {background-color:pink; left:0px; top:0px;} 25% {background-color:yellow; left:200px; top:0px;} 50% {background-color:blue; left:200px; top:200px;} 75% {background-color:green; left:0px; top:200px;} 100% {background-color:red; left:0px; top:50px;} }   動畫 cheatsheet  https://animate."><title>視差滾動</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=https://szyln.github.io/trustYourSecondBrain//icon.png><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code:wght@400;700&display=swap" rel=stylesheet><link href=https://szyln.github.io/trustYourSecondBrain/styles.cd61336c89ed6e03702366ce4a492b75.min.css rel=stylesheet><script src=https://szyln.github.io/trustYourSecondBrain/js/darkmode.46b07878b7f5d9e26ad7a3c40f8a0605.min.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],throwOnError:!1})})</script><script>const BASE_URL="https://szyln.github.io/trustYourSecondBrain/",fetchData=Promise.all([fetch("https://szyln.github.io/trustYourSecondBrain/indices/linkIndex.6ce789d37ee5e9bad12bcf7b76609cfc.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://szyln.github.io/trustYourSecondBrain/indices/contentIndex.1460ebc1ad4bdc950945b0937c2d542e.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-XYFD95KB4J"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XYFD95KB4J",{anonymize_ip:!1})}</script><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
+<script defer src=https://szyln.github.io/trustYourSecondBrain/js/search.bc849b857f2c1b822264d40635bb67b6.min.js></script><div class=singlePage><header><h1 id=page-title><a href=https://szyln.github.io/trustYourSecondBrain/>🪴 Quartz 3.2</a></h1><svg tabindex="0" id="search-icon" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg><div class=spacer></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
+<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>視差滾動</h1><p class=meta>Last updated Unknown</p><ul class=tags></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#視差滾動>視差滾動</a><ol><li><a href=#常用語法>常用語法</a></li><li><a href=#範例>範例</a></li><li><a href=#多步驟的動畫>多步驟的動畫</a></li></ol></li><li><a href=#動畫-cheatsheet>動畫 cheatsheet</a></li><li><a href=#transform>transform</a></li><li><a href=#transition-vs-animation>transition vs animation</a></li><li><a href=#aos>aos</a><ol><li><a href=#客製化>客製化</a></li><li><a href=#init-的客製化內容>init 的客製化內容</a></li></ol></li></ol></nav></details></aside><h2 id=視差滾動>視差滾動</h2><p><a href=https://www.oxxostudio.tw/articles/201803/css-animation.html rel=noopener>animation 語法介紹</a></p><h3 id=常用語法>常用語法</h3><ul><li><code>animation-name</code></li><li><code>animation-duration</code></li><li><code>animation-delay</code></li><li><code>animation-iteration-count</code>: 跑的次數<ul><li>數字</li><li><code>infinite</code>（無限、吃效能）</li></ul></li><li><code>animation-fill-mode</code><ul><li><code>backwards</code>，跑第一個影格</li><li><code>forwards</code>：留在最後一個影格</li><li><code>both</code>：第一個跟最後一個影格都會停住</li><li><code>none</code>（預設）：如果起始、終點都設在同一位置，會很滑順</li></ul></li></ul><h3 id=範例>範例</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=nt>div</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>position</span><span class=p>:</span><span class=kc>absolute</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>left</span><span class=p>:</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>width</span><span class=p>:</span><span class=mi>50</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>height</span><span class=p>:</span><span class=mi>50</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>background</span><span class=p>:</span><span class=mh>#f00</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=err>//</span> <span class=err>對應下面的</span> <span class=err>@keyframes</span>
+</span></span><span class=line><span class=cl>    <span class=k>animation-name</span><span class=p>:</span><span class=n>oxxo</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>animation-duration</span><span class=p>:</span><span class=mi>2</span><span class=kt>s</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>keyframes</span> <span class=nt>oxxo</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>from</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>left</span><span class=p>:</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nt>to</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>left</span><span class=p>:</span><span class=mi>100</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=多步驟的動畫>多步驟的動畫</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=o>//</span> <span class=nt>多步驟的動畫</span>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>keyframes</span> <span class=nt>example</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>0</span><span class=o>%</span>   <span class=p>{</span><span class=k>background-color</span><span class=p>:</span><span class=kc>pink</span><span class=p>;</span> <span class=k>left</span><span class=p>:</span><span class=mi>0</span><span class=kt>px</span><span class=p>;</span> <span class=k>top</span><span class=p>:</span><span class=mi>0</span><span class=kt>px</span><span class=p>;}</span>
+</span></span><span class=line><span class=cl>  <span class=nt>25</span><span class=o>%</span>  <span class=p>{</span><span class=k>background-color</span><span class=p>:</span><span class=kc>yellow</span><span class=p>;</span> <span class=k>left</span><span class=p>:</span><span class=mi>200</span><span class=kt>px</span><span class=p>;</span> <span class=k>top</span><span class=p>:</span><span class=mi>0</span><span class=kt>px</span><span class=p>;}</span>
+</span></span><span class=line><span class=cl>  <span class=nt>50</span><span class=o>%</span>  <span class=p>{</span><span class=k>background-color</span><span class=p>:</span><span class=kc>blue</span><span class=p>;</span> <span class=k>left</span><span class=p>:</span><span class=mi>200</span><span class=kt>px</span><span class=p>;</span> <span class=k>top</span><span class=p>:</span><span class=mi>200</span><span class=kt>px</span><span class=p>;}</span>
+</span></span><span class=line><span class=cl>  <span class=nt>75</span><span class=o>%</span>  <span class=p>{</span><span class=k>background-color</span><span class=p>:</span><span class=kc>green</span><span class=p>;</span> <span class=k>left</span><span class=p>:</span><span class=mi>0</span><span class=kt>px</span><span class=p>;</span> <span class=k>top</span><span class=p>:</span><span class=mi>200</span><span class=kt>px</span><span class=p>;}</span>
+</span></span><span class=line><span class=cl>  <span class=nt>100</span><span class=o>%</span> <span class=p>{</span><span class=k>background-color</span><span class=p>:</span><span class=kc>red</span><span class=p>;</span> <span class=k>left</span><span class=p>:</span><span class=mi>0</span><span class=kt>px</span><span class=p>;</span> <span class=k>top</span><span class=p>:</span><span class=mi>50</span><span class=kt>px</span><span class=p>;}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=動畫-cheatsheet>動畫 cheatsheet</h2><p><a href=https://animate.style/ rel=noopener>https://animate.style/</a>
+可以代 class 進來用讚啦</p><h2 id=transform>transform</h2><p>不會影響到排版，都是照原本的空間</p><h2 id=transition-vs-animation>transition vs animation</h2><p><a href=https://cssanimation.rocks/transition-vs-animation/ rel=noopener>https://cssanimation.rocks/transition-vs-animation/</a>
+transition 過渡動畫
+animation 真的很有意識要用的動畫（？）</p><h2 id=aos>aos</h2><p><a href=https://michalsnik.github.io/aos/ rel=noopener>https://michalsnik.github.io/aos/</a></p><p>利用 js 會動態加入 class
+如果快要移動到該區塊，就會動態加入</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;!-- body 尾部 --&gt;
+</span></span><span class=line><span class=cl>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://unpkg.com/aos@next/dist/aos.css&#34; /&gt;
+</span></span><span class=line><span class=cl>&lt;script src=&#34;https://unpkg.com/aos@next/dist/aos.js&#34;&gt;&lt;/script&gt;
+</span></span><span class=line><span class=cl>&lt;script&gt;
+</span></span><span class=line><span class=cl> AOS.init();
+</span></span><span class=line><span class=cl>&lt;/script&gt;
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;!-- 在物件上加 --&gt;
+</span></span><span class=line><span class=cl>&lt;div
+</span></span><span class=line><span class=cl>    data-aos=&#34;fade-up&#34;
+</span></span><span class=line><span class=cl>    data-aos-offset=&#34;200&#34;
+</span></span><span class=line><span class=cl>    data-aos-delay=&#34;50&#34;
+</span></span><span class=line><span class=cl>    data-aos-duration=&#34;1000&#34;
+</span></span><span class=line><span class=cl>    data-aos-easing=&#34;ease-in-out&#34;
+</span></span><span class=line><span class=cl>    data-aos-mirror=&#34;true&#34;
+</span></span><span class=line><span class=cl>    data-aos-once=&#34;false&#34;
+</span></span><span class=line><span class=cl>    data-aos-anchor-placement=&#34;top-center&#34;&gt;
+</span></span><span class=line><span class=cl>  &lt;/div&gt;
+</span></span></code></pre></td></tr></table></div></div><h3 id=客製化>客製化</h3><h4 id=css>CSS</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;link href=&#34;https://unpkg.com/aos@2.3.1/dist/aos.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span></code></pre></td></tr></table></div></div><h4 id=js>JS</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;script src=&#34;https://unpkg.com/aos@2.3.1/dist/aos.js&#34;&gt;&lt;/script&gt;
+</span></span></code></pre></td></tr></table></div></div><h4 id=aos-初始化>aos 初始化</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>&lt;script&gt;
+</span></span><span class=line><span class=cl>  AOS.init();
+</span></span><span class=line><span class=cl>&lt;/script&gt;
+</span></span></code></pre></td></tr></table></div></div><h3 id=init-的客製化內容>init 的客製化內容</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>AOS.init({
+</span></span><span class=line><span class=cl>  // Global settings:
+</span></span><span class=line><span class=cl>  disable: false, // accepts following values: &#39;phone&#39;, &#39;tablet&#39;, &#39;mobile&#39;, boolean, expression or function
+</span></span><span class=line><span class=cl>  startEvent: &#39;DOMContentLoaded&#39;, // name of the event dispatched on the document, that AOS should initialize on
+</span></span><span class=line><span class=cl>  initClassName: &#39;aos-init&#39;, // class applied after initialization
+</span></span><span class=line><span class=cl>  animatedClassName: &#39;aos-animate&#39;, // class applied on animation
+</span></span><span class=line><span class=cl>  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+</span></span><span class=line><span class=cl>  disableMutationObserver: false, // disables automatic mutations&#39; detections (advanced)
+</span></span><span class=line><span class=cl>  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+</span></span><span class=line><span class=cl>  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+</span></span><span class=line><span class=cl>  offset: 120, // 單位px 滾輪滑到觸發動畫的距離 offset (in px) from the original trigger point
+</span></span><span class=line><span class=cl>  delay: 0, // values from 0 to 3000, with step 50ms
+</span></span><span class=line><span class=cl>  duration: 400, // values from 0 to 3000, with step 50ms
+</span></span><span class=line><span class=cl>  easing: &#39;ease&#39;, // default easing for AOS animations
+</span></span><span class=line><span class=cl>  once: false, // whether animation should happen only once - while scrolling down
+</span></span><span class=line><span class=cl>  mirror: false, // whether elements should animate out while scrolling past them
+</span></span><span class=line><span class=cl>  anchorPlacement: &#39;top-bottom&#39;, // defines which position of the element regarding to window should trigger the animation
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>});
+</span></span></code></pre></td></tr></table></div></div><p>once->true
+已經執行過的動畫就不再重跑了</p><p>offset: 120
+滑接近多少才會觸發</p><p>offset, duration 觸發時間改這兩個</p></article><hr><div class=page-end><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=https://szyln.github.io/trustYourSecondBrain/js/graph.27e8521c25c27c79dea35f434c486167.js></script>
+<script>drawGraph("https://szyln.github.io/trustYourSecondBrain/frontend/%E5%89%8D%E7%AB%AF/CSS/%E8%A6%96%E5%B7%AE%E6%BB%BE%E5%8B%95","https://szyln.github.io/trustYourSecondBrain",[{"/moc":"#4388cc"}],-1,!0,!1,!0)</script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2022</p><ul><li><a href=/>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>Github</a></li></ul></footer></div><script src=https://szyln.github.io/trustYourSecondBrain/js/popover.e57188d2e4c06b0654e020b3a734bb62.min.js></script>
+<script>initPopover("https://szyln.github.io/trustYourSecondBrain")</script></div></body></html>
