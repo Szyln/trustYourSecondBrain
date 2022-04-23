@@ -5,10 +5,8 @@ title: trustYourSecondBrain
 ## 目錄
 - [All Notes](/notes)
 - [Setup-related Notes](/tags/setup)
-- [frontend](/frontend)
-
-
-- [React](frontend/React/React.md)
+- [Audio](/tags/audio)
+	- [sing/web](/tags/sing/web)
 
 
 - [quartz test](/frontend/test%20quartz/quartz%20test.md)
