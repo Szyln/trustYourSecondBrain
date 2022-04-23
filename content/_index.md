@@ -21,7 +21,7 @@ If you prefer browsing the contents of this site through a list instead of a gra
 - [All Notes](/notes)
 - [Setup-related Notes](/tags/setup)
 - [frontend](/frontend)
-- [frontend](/frontend/Fork.md)
+- [frontend](/frontend/Discord/carl.gg 建立身分組防止 discord 洗版.md)
 
 ## Troubleshooting
 - 🚧 [Troubleshooting and FAQ](notes/troubleshooting.md)

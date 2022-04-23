@@ -1,3 +1,7 @@
+---
+title: "carl.gg 建立身分組防止 discord 洗版"
+---
+
 # carl.gg
 ![](https://i.imgur.com/MoCy4wt.png)
 
