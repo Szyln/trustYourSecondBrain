@@ -22,7 +22,10 @@ If you prefer browsing the contents of this site through a list instead of a gra
 - [Setup-related Notes](/tags/setup)
 - [frontend](/frontend)
 - [frontend](/frontend/Discord/carl.gg 建立身分組防止 discord 洗版.md)
-
+- [frontend](/content/frontend/test%20quartz/)
+- [quartz test](/content/frontend/test%20quartz/quartz%20test.md)
+- [test 2](/content/frontend/test%20quartz/test%202.md)
+- 
 ## Troubleshooting
 - 🚧 [Troubleshooting and FAQ](notes/troubleshooting.md)
 - 🐛 [Submit an Issue](https://github.com/jackyzha0/quartz/issues)
