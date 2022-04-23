@@ -4,6 +4,16 @@ tag:
 - index
 - audio
 ---
+- [[Audio(index)]]
+- [[DC 播放伴奏]]
+- [[studio one 自己的快捷鍵設定]]
+- [[studio one 當機指南]]
+- [[開歌窗時突然沒有伴奏要怎麼唱歌（？）]]
+- [[開歌窗時突然沒有伴奏要怎麼唱歌（？）]]
+- [[電音（Melodyne, studio one）]]
+- [[無中生有的和音（Melodyne）]]
+- [[匯出乾檔＆單雙聲道互換]]
+
 
 ## Audio 目錄
 ### DAW
