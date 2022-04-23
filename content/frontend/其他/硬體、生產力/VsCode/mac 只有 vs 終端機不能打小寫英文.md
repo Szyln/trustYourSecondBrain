@@ -1,0 +1,1 @@
+[VScodeのターミナル機能内だけ、英字を入力すると大文字が出てくる](https://teratail.com/questions/223865)
