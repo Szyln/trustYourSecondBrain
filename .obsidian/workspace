@@ -52,8 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 511,
-    "collapsed": true
+    "width": 387
   },
   "right": {
     "id": "b130aeabdd85c272",
@@ -120,13 +119,13 @@
   "lastOpenFiles": [
     "content/腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
     "content/notes/images/Pasted image 20220615202213.png",
+    "content/notes/images/Pasted image 20220615221328.png",
+    "content/notes/images/Pasted image 20220615220607.png",
+    "content/notes/images/Pasted image 20220615220445.png",
+    "content/notes/images/Pasted image 20220615220322.png",
     "content/_index.md",
     "content/notes/images/我的任務.png",
     "content/Audio/studio one/Melodyne/電音（Melodyne, studio one）.md",
-    "content/Audio/Audio(index).md",
-    "content/notes/images/Pasted image 20220615222301.png",
-    "content/notes/images/Pasted image 20220615221328.png",
-    "screenshot.png",
-    "content/notes/images/Pasted image 20220615220607.png"
+    "content/Audio/Audio(index).md"
   ]
 }

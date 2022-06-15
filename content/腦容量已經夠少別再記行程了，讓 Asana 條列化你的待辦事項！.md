@@ -57,7 +57,8 @@ Asana 比起其他待辦軟體，介面看起來可能比較複雜，簡單說�
 
 #### 專案分類
 除了綜觀之外也可以點進不同專案分類看，介面跟「我的任務」是幾乎一樣的
-![](https://i.imgur.com/L39aig9.png)
+![](https://i.imgur.com/xNj5MMK.png)
+
 
 
 
