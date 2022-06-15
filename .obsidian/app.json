@@ -92,5 +92,5 @@
   "smartIndentList": true,
   "newLinkFormat": "shortest",
   "useMarkdownLinks": true,
-  "attachmentFolderPath": "附件"
+  "attachmentFolderPath": "content/notes/images"
 }

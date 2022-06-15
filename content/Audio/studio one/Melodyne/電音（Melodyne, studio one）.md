@@ -76,4 +76,3 @@ GRAILLON2 開電
     
     
 
-#audio/daw/studioOne/melodyne

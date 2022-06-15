@@ -4,28 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "79e988e6feddca72",
+        "id": "8342b1a0f2b688e0",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "image",
           "state": {
-            "file": "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
-            "mode": "preview"
+            "file": "content/notes/images/我的任務.png"
           }
-        },
-        "group": "731b23efa71b3786"
-      },
-      {
-        "id": "a3afe13fb96717d1",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
-            "mode": "source"
-          }
-        },
-        "group": "731b23efa71b3786"
+        }
       }
     ],
     "direction": "vertical"
@@ -61,13 +47,11 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 261,
-    "collapsed": true
+    "width": 511
   },
   "right": {
     "id": "b130aeabdd85c272",
@@ -84,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
+                "file": "content/notes/images/我的任務.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md"
+                "file": "content/notes/images/我的任務.png"
               }
             }
           }
@@ -127,20 +111,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 240.4686279296875,
-    "collapsed": true
+    "width": 240.4686279296875
   },
-  "active": "a3afe13fb96717d1",
+  "active": "8342b1a0f2b688e0",
   "lastOpenFiles": [
-    "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
-    "content/Obsidian 幫你腦袋搬家（？）(index).md",
-    "免費軟體學混音！.md",
-    "RX7.md",
-    "iZotope.md",
+    "content/notes/images/我的任務.png",
+    "content/腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
+    "content/notes/images/Pasted image 20220615202213.png",
+    "content/Audio/studio one/Melodyne/電音（Melodyne, studio one）.md",
+    "content/Audio/Audio(index).md",
+    "content/notes/images/Pasted image 20220615222301.png",
+    "content/notes/images/Pasted image 20220615221328.png",
     "screenshot.png",
-    "README.md",
-    "CODE_OF_CONDUCT.md",
-    "其他/接案/動作健康360/動作健康360 想要做網頁.md",
-    "未命名 1.md"
+    "content/notes/images/Pasted image 20220615220607.png",
+    "content/notes/images/Pasted image 20220615220322.png"
   ]
 }
