@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "content/_index.md",
-            "mode": "source"
+            "file": "content/腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
+            "mode": "preview"
           }
         }
       }
@@ -52,7 +52,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 511
+    "width": 511,
+    "collapsed": true
   },
   "right": {
     "id": "b130aeabdd85c272",
@@ -69,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/_index.md",
+                "file": "content/腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/_index.md"
+                "file": "content/腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md"
               }
             }
           }
@@ -112,14 +113,15 @@
       }
     ],
     "direction": "horizontal",
-    "width": 240.4686279296875
+    "width": 240.4686279296875,
+    "collapsed": true
   },
   "active": "8342b1a0f2b688e0",
   "lastOpenFiles": [
-    "content/_index.md",
-    "content/notes/images/我的任務.png",
     "content/腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
     "content/notes/images/Pasted image 20220615202213.png",
+    "content/_index.md",
+    "content/notes/images/我的任務.png",
     "content/Audio/studio one/Melodyne/電音（Melodyne, studio one）.md",
     "content/Audio/Audio(index).md",
     "content/notes/images/Pasted image 20220615222301.png",
