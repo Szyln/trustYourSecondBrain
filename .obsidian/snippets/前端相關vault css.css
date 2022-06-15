@@ -1,0 +1,64 @@
+
+.cm-hmd-list-indent .cm-tab, ul ul { position: relative; }
+.cm-hmd-list-indent .cm-tab::before, ul ul::before {
+ content:'';
+ border-left: 1px solid rgba(0, 122, 255, 0.25);
+ position: absolute;
+}
+.cm-hmd-list-indent .cm-tab::before { left: 0; top: -5px; bottom: -4px; 
+}
+ul ul::before { left: -11px; top: 0; bottom: 0; 
+} 
+ul { padding-left: 20px;}
+
+.cm-s-obsidian .HyperMD-codeblock { color: #aefffc;
+}
+.popover.hover-popover { width: 80%; }
+
+.cm-s-obsidian {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.CodeMirror-linenumber {
+  padding: 0 0 0 0;
+  font-size: 8px;
+}
+
+img {
+  width: 100%;
+}
+
+code {
+  tab-size: 2;
+}
+
+.markdown-embed {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.side-dock-ribbon {
+  display: none;
+}
+.nav-buttons-container {
+  justify-content: space-evenly;
+}
+
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle, .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+  height: inherit;
+  width: 0.1rem;
+}
+
+.workspace-tabs {
+  padding-right: 0.1rem;
+}
+
+code, .cm-inline-code {
+  color:whitesmoke !important;
+}
+
+ul > li.task-list-item[data-task="x"], ul > li.task-list-item[data-task="X"] {
+  text-decoration: none;
+}

@@ -1,0 +1,146 @@
+{
+  "main": {
+    "id": "9cb070a136b1a690",
+    "type": "split",
+    "children": [
+      {
+        "id": "79e988e6feddca72",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
+            "mode": "preview"
+          }
+        },
+        "group": "731b23efa71b3786"
+      },
+      {
+        "id": "a3afe13fb96717d1",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
+            "mode": "source"
+          }
+        },
+        "group": "731b23efa71b3786"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a3fd01543bb942d3",
+    "type": "split",
+    "children": [
+      {
+        "id": "2f1407770805006a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "148019a3838de914",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "26ac77351fac4f23",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#markdown",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 261,
+    "collapsed": true
+  },
+  "right": {
+    "id": "b130aeabdd85c272",
+    "type": "split",
+    "children": [
+      {
+        "id": "ed7247eca8f61bb5",
+        "type": "tabs",
+        "dimension": 44.303797468354425,
+        "children": [
+          {
+            "id": "76f2a5cf1326ec6e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "3447da7e14cdde29",
+        "type": "tabs",
+        "dimension": 55.69620253164557,
+        "children": [
+          {
+            "id": "c9ff595e8eb56324",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "bebd68f345943fbd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 240.4686279296875,
+    "collapsed": true
+  },
+  "active": "a3afe13fb96717d1",
+  "lastOpenFiles": [
+    "腦容量已經夠少別再記行程了，讓 Asana 條列化你的待辦事項！.md",
+    "content/Obsidian 幫你腦袋搬家（？）(index).md",
+    "免費軟體學混音！.md",
+    "RX7.md",
+    "iZotope.md",
+    "screenshot.png",
+    "README.md",
+    "CODE_OF_CONDUCT.md",
+    "其他/接案/動作健康360/動作健康360 想要做網頁.md",
+    "未命名 1.md"
+  ]
+}

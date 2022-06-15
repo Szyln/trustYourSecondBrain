@@ -1,0 +1,10 @@
+{
+  "baseFontSize": 42,
+  "translucency": false,
+  "cssTheme": "Comfort color dark",
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "custom",
+    "前端相關vault css"
+  ]
+}

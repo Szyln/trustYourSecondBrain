@@ -34,7 +34,9 @@ tag:
 - 先把音軌會走音的位置碎屍萬段（essential 作法），音準拉好拉滿
 
 #### before
-![圖片](https://media.discordapp.net/attachments/963414262112452618/963415285774315570/unknown.png?width=440&height=254)
+
+![](https://i.imgur.com/t0nXemz.png)
+
     
 #### after
 ![圖片](https://media.discordapp.net/attachments/963414262112452618/963415285510078514/unknown.png)

@@ -16,7 +16,9 @@ tag:
     
 處理好錄音剪輯之後，pool 要整理
 
-![圖片](https://media.discordapp.net/attachments/960175122302517318/960176744009199676/unknown.png?width=275&height=330)
+ 
+![](https://i.imgur.com/UAUEOyW.png)
+
     
 ### buffer 調大
     
